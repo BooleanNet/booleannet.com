@@ -1,1 +1,5 @@
 /* css styles */
+
+:root {
+    --bs-body-font-family: "Inter", sans-serif;
+}   
