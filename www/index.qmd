@@ -1,6 +1,20 @@
 ---
-title: "Home 1"
+title: "BooleanNet Home"
 ---
+
+Created with [Quarto](https://quarto.org/).
+
+## Code
+
+Code will look like this:
+
+```python
+print("Hello, World!")
+```
+
+## Diagrams
+
+Diagrams will look like this
 
 ```{mermaid}
 flowchart LR
@@ -8,5 +22,37 @@ flowchart LR
   B --> C
   C --> D
 ```
+## Data 
 
-Created with [Quarto](https://quarto.org/).
+You can embed tables, for example here [Palmer Penguins](data/palmer-penguins.csv) dataset:
+
+```{ojs}
+//| echo: false
+//| output: false
+//| code-copy: false
+data = FileAttachment("data/palmer-penguins.csv").csv({ typed: true })
+```
+
+```{ojs}
+//| echo: false
+//| code-copy: false
+Inputs.table(data)
+```
+
+## Diataxis
+
+A method for writing documentation: [Diataxis](diataxis).
+
+[diataxis]: https://diataxis.fr/start-here/#the-four-kinds-of-documentation
+
+```{mermaid}
+%%{init: {"quadrantChart": {"chartWidth": 440, "chartHeight": 220, "titleFontSize": 16, "quadrantLabelFontSize": 14, "xAxisLabelFontSize": 13, "yAxisLabelFontSize": 13}}}%%
+quadrantChart
+    x-axis Acquisition --> Application
+    y-axis Cognition --> Action
+
+    quadrant-1 How-to guides
+    quadrant-2 Tutorials
+    quadrant-3 Explanation
+    quadrant-4 Reference
+```

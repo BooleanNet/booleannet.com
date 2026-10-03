@@ -90,9 +90,53 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Home 1",
+    "title": "BooleanNet Home",
     "section": "",
-    "text": "flowchart LR\n  A --&gt; C\n  B --&gt; C\n  C --&gt; D\n\n\n\n\n\n\nCreated with Quarto.",
+    "text": "Created with Quarto.",
+    "crumbs": [
+      "Home",
+      "Home 1"
+    ]
+  },
+  {
+    "objectID": "index.html#code",
+    "href": "index.html#code",
+    "title": "BooleanNet Home",
+    "section": "Code",
+    "text": "Code\nCode will look like this:\nprint(\"Hello, World!\")",
+    "crumbs": [
+      "Home",
+      "Home 1"
+    ]
+  },
+  {
+    "objectID": "index.html#diagrams",
+    "href": "index.html#diagrams",
+    "title": "BooleanNet Home",
+    "section": "Diagrams",
+    "text": "Diagrams\nDiagrams will look like this\n\n\n\n\n\nflowchart LR\n  A --&gt; C\n  B --&gt; C\n  C --&gt; D",
+    "crumbs": [
+      "Home",
+      "Home 1"
+    ]
+  },
+  {
+    "objectID": "index.html#data",
+    "href": "index.html#data",
+    "title": "BooleanNet Home",
+    "section": "Data",
+    "text": "Data\nYou can embed tables, for example here Palmer Penguins dataset:\n\ndata = FileAttachment(\"data/palmer-penguins.csv\").csv({ typed: true })\n\n\n\n\n\n\n\nInputs.table(data)",
+    "crumbs": [
+      "Home",
+      "Home 1"
+    ]
+  },
+  {
+    "objectID": "index.html#diataxis",
+    "href": "index.html#diataxis",
+    "title": "BooleanNet Home",
+    "section": "Diataxis",
+    "text": "Diataxis\nA method for writing documentation: Diataxis.\n\n\n\n\n\n%%{init: {\"quadrantChart\": {\"chartWidth\": 440, \"chartHeight\": 220, \"titleFontSize\": 16, \"quadrantLabelFontSize\": 14, \"xAxisLabelFontSize\": 13, \"yAxisLabelFontSize\": 13}}}%%\nquadrantChart\n    x-axis Acquisition --&gt; Application\n    y-axis Cognition --&gt; Action\n\n    quadrant-1 How-to guides\n    quadrant-2 Tutorials\n    quadrant-3 Explanation\n    quadrant-4 Reference",
     "crumbs": [
       "Home",
       "Home 1"
