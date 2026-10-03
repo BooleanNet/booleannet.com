@@ -1,0 +1,48 @@
+project:
+  type: website
+
+website:
+  title: "BooleanNet"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Section 1
+        href: section1/page1.1.qmd
+      - text: Section 2
+        href: section2/page2.1.qmd
+      - text: Section 3
+        href: section3/page3.1.qmd
+  sidebar:
+    - title: Home
+      style: "docked"
+      contents:
+        - text: Home 1
+          href: index.qmd
+        - home2.qmd
+        - home3.qmd
+    - title: Section 1
+      contents:
+        - section1/page1.1.qmd
+        - section1/page1.2.qmd
+        - section1/page1.3.qmd
+    - title: Section 2
+      contents:
+        - section2/page2.1.qmd
+        - section2/page2.2.qmd
+        - section2/page2.3.qmd
+    - title: Section 3
+      contents:
+        - section3/page3.1.qmd
+        - section3/page3.2.qmd
+        - section3/page3.3.qmd
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true

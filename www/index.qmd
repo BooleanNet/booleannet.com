@@ -1,0 +1,12 @@
+---
+title: "Home 1"
+---
+
+```{mermaid}
+flowchart LR
+  A --> C
+  B --> C
+  C --> D
+```
+
+Created with [Quarto](https://quarto.org/).

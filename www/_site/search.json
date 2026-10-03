@@ -1,0 +1,134 @@
+[
+  {
+    "objectID": "section1/page1.1.html",
+    "href": "section1/page1.1.html",
+    "title": "Page 1.1",
+    "section": "",
+    "text": "Placeholder.",
+    "crumbs": [
+      "Section 1",
+      "Page 1.1"
+    ]
+  },
+  {
+    "objectID": "section1/page1.2.html",
+    "href": "section1/page1.2.html",
+    "title": "Page 1.2",
+    "section": "",
+    "text": "Placeholder.",
+    "crumbs": [
+      "Section 1",
+      "Page 1.2"
+    ]
+  },
+  {
+    "objectID": "section3/page3.1.html",
+    "href": "section3/page3.1.html",
+    "title": "Page 3.1",
+    "section": "",
+    "text": "Placeholder.",
+    "crumbs": [
+      "Section 3",
+      "Page 3.1"
+    ]
+  },
+  {
+    "objectID": "section3/page3.3.html",
+    "href": "section3/page3.3.html",
+    "title": "Page 3.3",
+    "section": "",
+    "text": "Placeholder.",
+    "crumbs": [
+      "Section 3",
+      "Page 3.3"
+    ]
+  },
+  {
+    "objectID": "home3.html",
+    "href": "home3.html",
+    "title": "Home 3",
+    "section": "",
+    "text": "Placeholder.",
+    "crumbs": [
+      "Home",
+      "Home 3"
+    ]
+  },
+  {
+    "objectID": "section2/page2.2.html",
+    "href": "section2/page2.2.html",
+    "title": "Page 2.2",
+    "section": "",
+    "text": "Placeholder.",
+    "crumbs": [
+      "Section 2",
+      "Page 2.2"
+    ]
+  },
+  {
+    "objectID": "section2/page2.1.html",
+    "href": "section2/page2.1.html",
+    "title": "Page 2.1",
+    "section": "",
+    "text": "Placeholder.",
+    "crumbs": [
+      "Section 2",
+      "Page 2.1"
+    ]
+  },
+  {
+    "objectID": "section2/page2.3.html",
+    "href": "section2/page2.3.html",
+    "title": "Page 2.3",
+    "section": "",
+    "text": "Placeholder.",
+    "crumbs": [
+      "Section 2",
+      "Page 2.3"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home 1",
+    "section": "",
+    "text": "flowchart LR\n  A --&gt; C\n  B --&gt; C\n  C --&gt; D\n\n\n\n\n\n\nCreated with Quarto.",
+    "crumbs": [
+      "Home",
+      "Home 1"
+    ]
+  },
+  {
+    "objectID": "section3/page3.2.html",
+    "href": "section3/page3.2.html",
+    "title": "Page 3.2",
+    "section": "",
+    "text": "Placeholder.",
+    "crumbs": [
+      "Section 3",
+      "Page 3.2"
+    ]
+  },
+  {
+    "objectID": "home2.html",
+    "href": "home2.html",
+    "title": "Home 2",
+    "section": "",
+    "text": "Placeholder.",
+    "crumbs": [
+      "Home",
+      "Home 2"
+    ]
+  },
+  {
+    "objectID": "section1/page1.3.html",
+    "href": "section1/page1.3.html",
+    "title": "Page 1.3",
+    "section": "",
+    "text": "Placeholder.",
+    "crumbs": [
+      "Section 1",
+      "Page 1.3"
+    ]
+  }
+]
