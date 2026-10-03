@@ -41,7 +41,7 @@ Inputs.table(data)
 
 ## Diataxis
 
-A method for writing documentation: [Diataxis](diataxis).
+A method for writing documentation: [Diataxis][diataxis].
 
 [diataxis]: https://diataxis.fr/start-here/#the-four-kinds-of-documentation
 
