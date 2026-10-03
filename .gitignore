@@ -8,6 +8,7 @@ __pycache__/
 pixi.lock
 # C extensions
 *.so
+www/_site/
 
 # Distribution / packaging
 .Python
