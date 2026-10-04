@@ -4,7 +4,7 @@ Espresso is required for heuristic minimization Boolean expressions. For more in
 
 * http://chmod755.tumblr.com/post/31417234230/espresso-heuristic-logic-minimizer
 
-The `espresso-modern.tar.gz` has been downloaded here for reference.
+The `espresso-modern.tar.gz` has been downloaded for reference.
 
 UC Berkeley, Espresso Version #2.3, Release date 01/31/88
 
@@ -16,7 +16,7 @@ To install into your home directory `~/bin` instead, run the same build from thi
 
 ```bash
 tar xzvf espresso-modern.tar.gz
-cd espresso/espresso/source
+cd espresso/source
 chmod +x configure
 ./configure --bindir="$HOME/bin" CFLAGS="-g -O2 -std=gnu89"
 make clean
