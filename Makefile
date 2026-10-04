@@ -4,7 +4,7 @@
 #
 
 README_URL = https://raw.githubusercontent.com/ialbert/booleannet-central/master/README.md
-README = src/BOOLEANET_README.md
+README = src/BOOLEAN_README.md
 
 # Serve the website locally
 serve: readme

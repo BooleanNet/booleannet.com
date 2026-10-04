@@ -2,4 +2,4 @@
 title: "bnet commands"
 ---
 
-{{< include ../src/BOOLEANET_README.md >}}
+{{< include ../src/BOOLEAN_README.md >}}
