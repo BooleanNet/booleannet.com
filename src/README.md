@@ -25,6 +25,21 @@ pip install booleannet
 
 It installs the `bnet` command line tool that implements a number of subcommands.
 
+Run `bnet` with no arguments to see the available subcommands:
+
+```
+Usage: bnet [OPTIONS] COMMAND [ARGS]...
+
+  BooleanNet command line tools.
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  graphviz  Generates a Graphviz graph from a model.
+  models    List model summaries, or print one model in the chosen format.
+```
+
 ## bnet models: manage known models
 
 The `bnet models` subcommand operates on models from the [Biodivine Boolean Models (BBM) Benchmark Dataset][bbmb].
