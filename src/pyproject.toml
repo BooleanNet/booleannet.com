@@ -15,3 +15,6 @@ bnet = "booleannet.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["booleannet*"]
+
+[tool.setuptools.package-data]
+booleannet = ["data/*.json.gz"]

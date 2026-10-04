@@ -1,5 +1,1 @@
-"""Subcommands for ``bnet``.
-
-Add a module in this package that defines ``cli`` as a ``click.Command``.
-The filename is the subcommand name.
-"""
+"""Subcommands for ``bnet``. Register each one in ``booleannet.cli.COMMANDS``."""

@@ -6,10 +6,12 @@ Join models/summary.csv to each model directory and write one JSON object.
 
 Directory names follow the summary columns (regulations is not in the name):
 
+\b
     [id-009]__[var-60]__[in-13]__[YEAST-APOPTOSIS]
 
 The output is a JSON object keyed by the zero-padded id from the CSV:
 
+\b
     {
       "009": {
         "summary": {
@@ -32,12 +34,15 @@ The output is a JSON object keyed by the zero-padded id from the CSV:
 JSON files are stored as objects. The other formats stay as text.
 """
 
-import argparse
 import csv
+import gzip
 import json
 import re
-import sys
 from pathlib import Path
+
+import click
+
+ROOT = Path(__file__).resolve().parent
 
 DIR_RE = re.compile(
     r"^\[id-(?P<id>\d+)\]__\[var-(?P<variables>\d+)\]__\[in-(?P<inputs>\d+)\]__\[(?P<name>.+)\]$"
@@ -99,15 +104,44 @@ def load_files(directory):
     return data
 
 
+def parse_skip(ctx, param, value):
+    ids = set()
+    for part in value.split(","):
+        part = part.strip()
+        if not part:
+            continue
+        if not part.isdigit():
+            raise click.BadParameter(f"not a model id: {part}")
+        ids.add(part.zfill(3))
+    return ids
+
+
+def drop_skipped(summary, dirs, skip):
+    unknown = sorted(skip - set(summary) - set(dirs))
+    if unknown:
+        raise SystemExit(f"unknown skip id: {', '.join(unknown)}")
+    for model_id in skip:
+        summary.pop(model_id, None)
+        dirs.pop(model_id, None)
+
+
 def build(summary, dirs):
-    if set(summary) != set(dirs):
-        missing = sorted(set(summary) - set(dirs))
-        extra = sorted(set(dirs) - set(summary))
-        raise SystemExit(f"summary/directory mismatch missing={missing} extra={extra}")
+    missing = sorted(set(summary) - set(dirs))
+    extra = sorted(set(dirs) - set(summary))
+    if missing or extra:
+        click.echo(
+            f"warning: summary/directory mismatch missing={missing} extra={extra}",
+            err=True,
+        )
+        for model_id in missing:
+            del summary[model_id]
+        for model_id in extra:
+            del dirs[model_id]
 
     models = {}
     for model_id in sorted(summary):
         row = summary[model_id]
+        print(f"Processing: {row}")
         path, parsed = dirs[model_id]
         parsed_vars = int(parsed["variables"])
         parsed_inputs = int(parsed["inputs"])
@@ -126,19 +160,47 @@ def build(summary, dirs):
     return models
 
 
-def main():
-    root = Path(__file__).resolve().parent
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--summary", type=Path, default=root / "models" / "summary.csv")
-    parser.add_argument("--models", type=Path, default=root / "models")
-    parser.add_argument("-o", "--output", type=Path, default=root / "models.json")
-    args = parser.parse_args()
-
-    models = build(read_summary(args.summary), index_dirs(args.models))
-    with args.output.open("w") as f:
-        json.dump(models, f, ensure_ascii=False, separators=(",", ":"), indent=2)
+@click.command(help=__doc__)
+@click.option(
+    "--summary",
+    type=click.Path(exists=True, dir_okay=False, path_type=Path),
+    default= Path("models") / "summary.csv",
+    show_default=True,
+    help="Summary CSV joined onto each model.",
+)
+@click.option(
+    "--models",
+    type=click.Path(exists=True, file_okay=False, path_type=Path),
+    default=Path("models"),
+    show_default=True,
+    help="Directory of model folders.",
+)
+@click.option(
+    "--skip",
+    default="",
+    show_default=True,
+    callback=parse_skip,
+    help="Comma-separated model ids to leave out of the JSON. Ids are zero-padded to 3 digits.",
+)
+@click.option(
+    "-o",
+    "--output",
+    type=click.Path(dir_okay=False, path_type=Path),
+    default="models.json.gz",
+    show_default=True,
+    help="JSON file to write.",
+)
+def main(summary: Path, models: Path, output: Path, skip: set[str]) -> None:
+    rows = read_summary(summary)
+    dirs = index_dirs(models)
+    drop_skipped(rows, dirs, skip)
+    data = build(rows, dirs)
+    stream = gzip.open(output, "wt") if output.suffix == ".gz" else output.open("wt")
+    with stream as f:
+        json.dump(data, f, ensure_ascii=False, separators=(",", ":"), indent=2)
         f.write("\n")
-    print(f"wrote {len(models)} models to {args.output}", file=sys.stderr)
+    note = f", skipped {len(skip)}" if skip else ""
+    click.echo(f"wrote {len(data)} models to {output}{note}", err=True)
 
 
 if __name__ == "__main__":
