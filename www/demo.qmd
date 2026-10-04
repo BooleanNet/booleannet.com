@@ -1,0 +1,87 @@
+---
+title: "Demo Home"
+---
+
+TODO:
+
+
+* [Biodivine Boolean Models Benchmark Dataset Home][BBM-Home]
+* [Biodivine Boolean Model Repository][BBM-Models]
+
+
+[BBM-Home]: https://bbm.sybila.fi.muni.cz/
+
+
+[BBM-Models]: https://bbm.sybila.fi.muni.cz/models
+
+## Code
+
+Code will look like this:
+
+```python
+print("Hello, World!")
+```
+
+## Diagrams
+
+Diagrams will look like this
+
+```{mermaid}
+flowchart LR
+  A --> C
+  B --> C
+  C --> D
+```
+## Data 
+
+You can embed tables, for example here [Palmer Penguins](data/palmer-penguins.csv) dataset:
+
+```{ojs}
+//| echo: false
+//| output: false
+//| code-copy: false
+data = FileAttachment("data/palmer-penguins.csv").csv({ typed: true })
+```
+
+```{ojs}
+//| echo: false
+//| code-copy: false
+Inputs.table(data)
+```
+Diagram:
+```{mermaid}
+flowchart LR
+  A(A)
+  B("B ↺")
+  C("C ↺")
+  D(D)
+  D --o A
+  B --o C
+  C --> A
+  A --> B
+  D --> B
+  A --> C
+  B --> D
+  C --> D
+  classDef n width:4em,font-weight:bold,text-align:center
+  class A,B,C,D n
+  linkStyle 0,1 stroke:#2563eb,stroke-width:2px
+  linkStyle 2,3,4,5,6,7 stroke:#dc2626,stroke-width:2px
+```
+## Diataxis
+
+A method for writing documentation: [Diataxis][diataxis].
+
+[diataxis]: https://diataxis.fr/start-here/#the-four-kinds-of-documentation
+
+```{mermaid}
+%%{init: {"quadrantChart": {"chartWidth": 440, "chartHeight": 220, "titleFontSize": 16, "quadrantLabelFontSize": 14, "xAxisLabelFontSize": 13, "yAxisLabelFontSize": 13}}}%%
+quadrantChart
+    x-axis Acquisition --> Application
+    y-axis Cognition --> Action
+
+    quadrant-1 How-to guides
+    quadrant-2 Tutorials
+    quadrant-3 Explanation
+    quadrant-4 Reference
+```

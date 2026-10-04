@@ -19,9 +19,9 @@ website:
     - title: Home
       style: "docked"
       contents:
-        - text: Home 1
+        - text: Home
           href: index.qmd
-        - home2.qmd
+        - install.qmd
         - home3.qmd
     - title: Section 1
       contents:

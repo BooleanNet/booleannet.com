@@ -1,0 +1,59 @@
+---
+title: "Installation"
+---
+
+The best way to do scientific computing is via [pixi] environment management. Pixi is the next generation of `conda` environment management.
+
+With pixi you can create isolated software environments with a wide range of software packages.
+
+Install it if you haven't already. All instructions here assume that you have `pixi` installed.
+
+
+[pixi]: https://pixi.prefix.dev/latest/installation/
+
+## Initialize a project
+
+In a new project directory run:
+
+```bash
+# Initialize a new project
+pixi init
+```
+
+This creates the `pixi.toml` file which contains the project configuration. Now add software to the environment.
+
+## Activate 
+
+Load a shell with the environment activated (analogous to `conda activate my-environment`).
+
+```bash
+# Activate the enviroment
+pixi shell
+```
+
+## Install software
+
+Add software to the environment.
+
+```bash
+# Add Python 3.12 and some useful packages
+pixi add python=3.12 pip click graphviz
+
+# Install pyboolnet
+pip install git+https://github.com/hklarner/pyboolnet@3.0.16
+```
+
+
+## Additional software 
+
+The following software may need to be installed manually.
+
+[clasp][clasp] is an answer set solver for (extended) normal and disjunctive logic programs.
+
+```bash
+# Install clingo
+pixi add -c potassco:clingo
+```
+
+[clasp]: https://potassco.org/clasp/
+

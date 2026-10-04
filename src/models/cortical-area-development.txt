@@ -1,0 +1,8 @@
+#
+# https://bbm.sybila.fi.muni.cz/models/7
+#
+Coup_fti* = not (Fgf8 or Sp8) or not (Sp8 or Fgf8)
+Emx2* = Coup_fti and not (Fgf8 or Sp8 or Pax6)
+Fgf8* = Fgf8 and Sp8 and not Emx2
+Pax6* = Sp8 and not (Emx2 or Coup_fti)
+Sp8* = Fgf8 and not Emx2
