@@ -7,7 +7,7 @@ from booleannet.commands.models import main as models
 
 # Subcommand name -> click command. Add a new tool here.
 COMMANDS = {
-    "gviz": gviz,
+    "graphviz": gviz,
     "models": models,
 }
 

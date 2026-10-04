@@ -3,6 +3,7 @@
 
     bnet models                 one summary row per model
     bnet models 1               bnet for model 001
+    bnet models CORTICAL        model whose name contains CORTICAL
     bnet models 1 -f aeon       aeon for model 001
     bnet models -d models.json  read a chosen JSON database
 """
@@ -40,8 +41,8 @@ def load_models(path: Path | None):
 
 def list_summaries(models):
     rows = []
-    for model_id in sorted(models):
-        summary = models[model_id]["summary"]
+    for model_id, model in models.items():
+        summary = model["summary"]
         rows.append((
             model_id,
             summary["name"],
@@ -49,18 +50,24 @@ def list_summaries(models):
             summary["inputs"],
             summary["regulations"],
         ))
+    rows.sort(key=lambda row: (row[2], row[0]))
     name_w = max(len(name) for _, name, _, _, _ in rows)
     click.echo(f"{'id':3}  {'name':<{name_w}}  {'var':>5}  {'in':>4}  {'reg':>5}")
     for model_id, name, variables, inputs, regulations in rows:
         click.echo(f"{model_id}  {name:<{name_w}}  {variables:5}  {inputs:4}  {regulations:5}")
 
 
-def normalize_id(ctx, param, value):
-    if value is None:
-        return None
-    if not value.isdigit():
-        raise click.BadParameter("must be an integer")
-    return value.zfill(3)
+def find_models(models, key: str) -> list[str]:
+    """Match a number to an id, or text to an id or name."""
+    if key.isdigit():
+        model_id = key.zfill(3)
+        return [model_id] if model_id in models else []
+    needle = key.casefold()
+    return [
+        model_id
+        for model_id, model in models.items()
+        if needle in model_id.casefold() or needle in model["summary"]["name"].casefold()
+    ]
 
 
 def emit(model, fmt):
@@ -72,7 +79,7 @@ def emit(model, fmt):
 
 
 @click.command()
-@click.argument("model_id", required=False, callback=normalize_id)
+@click.argument("key", required=False)
 @click.option(
     "-d",
     "--database",
@@ -83,21 +90,28 @@ def emit(model, fmt):
     "-f",
     "--format",
     "fmt",
-    default="bnet",
+    default="booleannet",
     show_default=True,
     type=click.Choice(FORMATS),
-    help="Model file to print when MODEL_ID is given.",
+    help="Model file to print when KEY is given.",
 )
-def main(model_id, database, fmt):
-    """List model summaries, or print one model in the chosen format."""
+def main(key, database, fmt):
+    """List model summaries, or print one model in the chosen format.
+
+    KEY is a number (1 or 001) or text matched against the id or name.
+    """
     models = load_models(database)
-    if model_id is None:
+    if key is None:
         list_summaries(models)
         return
 
-    if model_id not in models:
-        raise click.ClickException(f"no model {model_id}")
-    emit(models[model_id], fmt)
+    hits = find_models(models, key)
+    if not hits:
+        raise click.ClickException(f"no model {key}")
+    if len(hits) > 1:
+        lines = [f"{i}  {models[i]['summary']['name']}" for i in sorted(hits)]
+        raise click.ClickException("several models match:\n" + "\n".join(lines))
+    emit(models[hits[0]], fmt)
 
 
 if __name__ == "__main__":

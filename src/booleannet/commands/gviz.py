@@ -3,6 +3,7 @@
 import re
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 from pyboolnet import log
@@ -41,8 +42,23 @@ def booleannet2functions(text: str) -> dict:
     return funcs
 
 
-def rules2dot(rules_path: Path, dot_path: Path) -> None:
-    primes = functions2primes(booleannet2functions(rules_path.read_text()))
+def read_rules(path: Path | None) -> tuple[str, Path | None]:
+    """Return rules text and the file output names inherit from.
+
+    A pipe is the rules source when stdin is not a terminal. Otherwise the
+    source is ``path`` or ``input.txt``. The returned path is that file, or
+    ``None`` when the rules came from stdin and no input file was given.
+    """
+    if not sys.stdin.isatty():
+        return sys.stdin.read(), path
+    path = path or Path("input.txt")
+    if not path.is_file():
+        raise click.ClickException(f"rules file not found: {path}")
+    return path.read_text(), path
+
+
+def rules2dot(text: str, dot_path: Path) -> None:
+    primes = functions2primes(booleannet2functions(text))
     graph = primes2igraph(primes)
     # Default width is ~0.2in for one-letter names, which clips the labels.
     graph.graph["node"]["width"] = "0.55"
@@ -73,14 +89,19 @@ def write_image(dot: Path, image: Path, engine: str = "neato") -> None:
     log.info(f"image written to {image}")
 
 
-@click.command(no_args_is_help=True)
-@click.option("-i", "--input", "rules", required=True, type=click.Path(exists=True, dir_okay=False, path_type=Path), help="BooleanNet rules file.")
-@click.option("-d", "--dot", "dot", type=click.Path(dir_okay=False, path_type=Path), help="Dot output. Default: input path with a .dot suffix.")
-@click.option("-o", "--output", "image", type=click.Path(dir_okay=False, path_type=Path), help="Image output. Default: input path with a .png suffix. Format follows the extension (png, pdf, svg).")
-@click.option("-e", "--engine", default="neato", show_default=True, type=click.Choice(ENGINES), help="Graphviz layout engine.")
-def cli(rules: Path, dot: Path | None, image: Path | None, engine: str) -> None:
+@click.command()
+@click.option("-i", "--input", "rules", type=click.Path(dir_okay=False, path_type=Path), help="BooleanNet rules file. Used when stdin is a terminal. Default: input.txt.")
+@click.option("-d", "--dot", "dot", type=click.Path(dir_okay=False, path_type=Path), help="Dot output. Default: input path with a .dot suffix, or output.dot when reading stdin with no input file.")
+@click.option("-o", "--output", "image", type=click.Path(dir_okay=False, path_type=Path), help="Image output. Default: input path with a .pdf suffix, or output.pdf when reading stdin with no input file. Format follows the extension (png, pdf, svg).")
+@click.option("-e", "--engine", default="circo", show_default=True, type=click.Choice(ENGINES), help="Graphviz layout engine.")
+def cli(rules: Path | None, dot: Path | None, image: Path | None, engine: str) -> None:
     """Generates a Graphviz graph from a model."""
-    dot = dot or rules.with_suffix(".dot")
-    image = image or rules.with_suffix(".png")
-    rules2dot(rules, dot)
+    text, source = read_rules(rules)
+    if source is None:
+        dot = dot or Path("output.dot")
+        image = image or Path("output.pdf")
+    else:
+        dot = dot or source.with_suffix(".dot")
+        image = image or source.with_suffix(".pdf")
+    rules2dot(text, dot)
     write_image(dot, image, engine)

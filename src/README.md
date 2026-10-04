@@ -10,28 +10,34 @@ It is not a package that implements new modeling techniques or algorithms.
 pip install booleannet
 ```
 
-It installs the bnet command line tool that implements a number of subcommands.
+It installs the `bnet` command line tool that implements a number of subcommands.
 
-## Usage
+
+# bnet models: manage known models
+
 
 ```bash
 # List all models
-bnet models
+bnet models | head
 ```
 
-prints:
+prints models by increasing number of variables:
 
 ```
 id   name                                                   var    in    reg
-001  SIGNALING-IN-MACROPHAGE-ACTIVATION                     302    19    533
-002  SIGNAL-TRANSDUCTION-IN-FIBROBLASTS                     130     9    557
-003  MAMMALIAN-CELL-CYCLE                                    19     1     51
-004  ERBB-RECEPTOR-SIGNALING                                225    22   1100
-005  FA-BRCA-PATHWAY                                         28     0    123
+165  EGGSHELL-PATTERNING-PHENOMOENOLOGICAL                    4     4     16
+170  DROSOPHILA-GAP-B                                         4     3     15
+007  CORTICAL-AREA-DEVELOPMENT                                5     0     14
+109  ASYMMETRIC-CELL-DIVISION-A                               5     0     15
+169  DROSOPHILA-GAP-A                                         5     2     17
+171  DROSOPHILA-GAP-C                                         5     2     20
+172  DROSOPHILA-GAP-D                                         5     2     12
+184  P53-MDM2-NETWORK                                         5     1     15
+189  TRP-BIOSYNTHESIS                                         5     1     13
 ...
 ```
 
-# Get a specific model
+To get the rules for a specific model:
 
 ```bash
 # Get rules for model 7
@@ -41,25 +47,42 @@ bnet models 7
 prints:
 
 ```
-targets,factors
-v_Coup_fti, (!(v_Fgf8 | v_Sp8) | !(v_Sp8 | v_Fgf8))
-v_Emx2, (v_Coup_fti & !((v_Fgf8 | v_Sp8) | v_Pax6))
-v_Fgf8, ((v_Fgf8 & v_Sp8) & !v_Emx2)
-v_Pax6, (v_Sp8 & !(v_Emx2 | v_Coup_fti))
-v_Sp8, (v_Fgf8 & !v_Emx2)
+Coup_fti* = not (Fgf8 or Sp8) or not (Sp8 or Fgf8)
+Emx2* = Coup_fti and not (Fgf8 or Sp8 or Pax6)
+Fgf8* = Fgf8 and Sp8 and not Emx2
+Pax6* = Sp8 and not (Emx2 or Coup_fti)
+Sp8* = Fgf8 and not Emx2
+```
+
+You can also get the rules for a model by name:
+
+```bash
+# Get rules for model by name
+bnet models CORTICAL-AREA-DEVELOPMENT
+```
+
+Get the rules in other formats:
+
+```bash
+# Get model 7 in BNet format
+bnet models 7 -f bnet
+```
+
+## bnet graphviz: visualize a model
+
+```bash
+# If you have a model in a file
+bnet graphviz -i model.txt
 ```
 
 ```bash
-# Get SBML for model 7
-bnet models 7 -f booleannet
+# You can pipe the rule to graphviz
+bnet models CORTICAL-AREA-DEVELOPMENT | bnet graphviz
 ```
-
-## Visualize a model
-
 
 ## Convert BBMB to JSON
 
-Convert the BBMB model repository directory to a single JSON file. 
+This is used internally to transform the BBMB model repository to a single JSON file.
 
 Skips a few large models that make the file too large.
 
