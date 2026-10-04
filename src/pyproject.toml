@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "booleannet"
+version = "2.0"
+description = "Boolean network modeling"
+authors = [{ name = "Istvan Albert", email = "istvan.albert@gmail.com" }]
+requires-python = ">=3.12"
+dependencies = ["click>=8.5,<9"]
+
+[project.scripts]
+bnet = "booleannet.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["booleannet*"]

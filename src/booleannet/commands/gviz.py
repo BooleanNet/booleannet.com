@@ -78,12 +78,9 @@ def write_image(dot: Path, image: Path, engine: str = "neato") -> None:
 @click.option("-d", "--dot", "dot", type=click.Path(dir_okay=False, path_type=Path), help="Dot output. Default: input path with a .dot suffix.")
 @click.option("-o", "--output", "image", type=click.Path(dir_okay=False, path_type=Path), help="Image output. Default: input path with a .png suffix. Format follows the extension (png, pdf, svg).")
 @click.option("-e", "--engine", default="neato", show_default=True, type=click.Choice(ENGINES), help="Graphviz layout engine.")
-def main(rules: Path, dot: Path | None, image: Path | None, engine: str) -> None:
+def cli(rules: Path, dot: Path | None, image: Path | None, engine: str) -> None:
+    """Generates a Graphviz graph from a model."""
     dot = dot or rules.with_suffix(".dot")
     image = image or rules.with_suffix(".png")
     rules2dot(rules, dot)
     write_image(dot, image, engine)
-
-
-if __name__ == "__main__":
-    main()
