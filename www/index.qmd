@@ -4,12 +4,12 @@ title: "BooleanNet Home"
 
 Tutorials and examples for working with Boolean networks.
 
-* [BooleanNet Discussion][discussion]
+* [BooleanNet GitHub Discussion][discussion]
 
 Code:
 
-* [Website repository][website-repository]
-* [BooleanNet repository][booleannet-repository]
+* [BooleanNet website repository][website-repository]
+* [`bnet` command line tool repository][booleannet-repository]
 
 [discussion]: https://github.com/BooleanNet/booleannet.com/discussions
 [website-repository]: https://github.com/BooleanNet/booleannet.com/tree/main
