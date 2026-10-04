@@ -28,3 +28,45 @@ pre code {
     padding: 0;
     white-space: pre;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: #1a1f26;
+}
+
+h1 {
+    font-size: 1.7rem;
+    margin-bottom: 0.6rem;
+}
+
+h2 {
+    font-size: 1.3rem;
+    margin-top: 1.75rem;
+}
+
+h3 {
+    font-size: 1.12rem;
+    margin-top: 1.4rem;
+}
+
+h4 {
+    font-size: 1.02rem;
+}
+
+h5 {
+    font-size: 0.95rem;
+}
+
+h6 {
+    font-size: 0.88rem;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #57606a;
+}

@@ -1,18 +1,14 @@
-# BooleanNet
-
 BooleanNet is a training tool that makes use of existing Boolean network models, methods and algorithms.
 
 ## Environment setup
 
-`booleannet` does not automatically install all of its dependencies as there might be conflicts across dependencies. We recommend using [pixi][pixi] as a virtual environment manager. 
-
-An example using `pixi` to set up the enviroment is:
+`booleannet` does not automatically install all of its dependencies. We recommend using [pixi][pixi] as a virtual environment manager. Here is a minimal example on how to set up a pixi enviroment:
 
 ```bash
 pixi init
+pixi add python=3.12 pip graphviz
+pixi run pip install git+https://github.com/hklarner/pyboolnet@3.0.16
 pixi shell
-pixi add python=3.12 pip
-pip install git+https://github.com/hklarner/pyboolnet@3.0.16
 ```
 
 Your enviroment is now set up with the necessary dependencies to use `booleannet`.
@@ -21,16 +17,19 @@ Your enviroment is now set up with the necessary dependencies to use `booleannet
 
 ## Install booleannet
 
-The libraires 
+Inside the environment, install `booleannet` with:
+
 ```bash
 pip install booleannet
 ```
 
 It installs the `bnet` command line tool that implements a number of subcommands.
 
+## bnet models: manage known models
 
-# bnet models: manage known models
+The `bnet models` subcommand operates on models from the [Biodivine Boolean Models (BBM) Benchmark Dataset][bbmb].
 
+[bbmb]: https://bbm.sybila.fi.muni.cz/
 
 ```bash
 # List all models
@@ -110,4 +109,3 @@ python booleannet/bbm2json.py \
        --output models.json.gz
 ```
 
-## Convert rules to images

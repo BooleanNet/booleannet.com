@@ -2,12 +2,9 @@
 title: "Installation"
 ---
 
-The best way to do scientific computing is via [pixi] environment management. Pixi is the next generation of `conda` environment management.
+The best way to do scientific computing is via [pixi] environment management. With pixi you can create isolated software environments with a wide range of software packages. Pixi is the next generation of `conda` environment management.
 
-With pixi you can create isolated software environments with a wide range of software packages.
-
-Install it if you haven't already. All instructions here assume that you have `pixi` installed.
-
+All instructions here assume that you have `pixi` installed.
 
 [pixi]: https://pixi.prefix.dev/latest/installation/
 

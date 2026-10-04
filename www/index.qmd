@@ -4,37 +4,15 @@ title: "BooleanNet Home"
 
 Tutorials and examples for working with Boolean networks.
 
-Contribute via: <https://github.com/BooleanNet/booleannet.com/tree/main>
+* [BooleanNet Discussion][discussion]
 
+Code:
 
-```
-{{< include data/fragility-rules.txt >}}
-```
+* [Website repository][website-repository]
+* [BooleanNet repository][booleannet-repository]
 
-The rules would form a Boolean network of the following form:
-
-```{dot}
-digraph {
-  rankdir=LR
-  outputorder=edgesfirst
-  node [style=filled fillcolor=white fontsize=12 width=0.42 height=0.3 margin="0.04,0.02"]
-  edge [penwidth=1.6]
-  edge [color="#2563eb"]
-  D -> A
-  B -> C
-  B -> B
-  C -> C
- layout=circo
-  edge [color="#dc2626" arrowhead=tee]
-  A -> B
-  A -> C
-  B -> D
-  C -> A
-  D -> B
-  
-  C -> D
-}
-```
-
+[discussion]: https://github.com/BooleanNet/booleannet.com/discussions
+[website-repository]: https://github.com/BooleanNet/booleannet.com/tree/main
+[booleannet-repository]: https://github.com/BooleanNet/booleannet.com/tree/main/src
 
 Created with [Quarto](https://quarto.org/).
