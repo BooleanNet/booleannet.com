@@ -3,12 +3,20 @@
 # WWW_HOST must be set in bash to sync correctly
 #
 
+README_URL = https://raw.githubusercontent.com/ialbert/booleannet-central/master/README.md
+README = src/BOOLEANET_README.md
+
 # Serve the website locally
-serve:
+serve: readme
 	quarto preview www --port 8000
 
+
+# Fetch the booleannet-central README used by www/booleannet.qmd
+readme:
+	curl -fsSL $(README_URL) -o $(README)
+
 # Build the website
-build:
+build: readme
 	quarto render www
 
 # Sync the website to the remote host

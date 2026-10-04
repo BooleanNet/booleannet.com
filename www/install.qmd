@@ -1,8 +1,8 @@
 ---
-title: "Software enviroment"
+title: "Environment"
 ---
 
-This page describes how to install boolean network simulation tools and related software.
+This page describes how to install software when working with Boolean network modeling.
 
 ## Learn to use pixi
 
