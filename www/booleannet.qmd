@@ -1,5 +1,5 @@
 ---
-title: "bnet commands"
+title: "BooleanNet simulations"
 ---
 
 The page is a direct copy of the README file at:

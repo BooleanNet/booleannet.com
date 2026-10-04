@@ -22,8 +22,15 @@ website:
         - text: Home
           href: index.qmd
         - install.qmd
-        - text: bnet commands
-          href: booleannet.qmd
+        - booleannet.qmd
+        - boolnet.qmd
+        - pyboolnet.qmd
+        - pystablemotifs.qmd
+        - cubewalkers.qmd
+        - boolmore.qmd
+        - biobalm.qmd
+
+
     - title: Section 1
       contents:
         - section1/page1.1.qmd

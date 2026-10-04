@@ -1,0 +1,9 @@
+---
+title: "BioBalm"
+---
+
+`biobalm` maps the attractor landscape of large Boolean networks. It builds a succession diagram, an acyclic graph of nested trap spaces, and uses that diagram to find attractors and control interventions that drive the network into a chosen trap space.
+
+* <https://github.com/jcrozum/biobalm>
+
+This page is a placeholder and a work in progress.

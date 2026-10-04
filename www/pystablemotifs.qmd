@@ -1,0 +1,9 @@
+---
+title: "PyStableMotifs"
+---
+
+`pystablemotifs` finds attractors of asynchronously updated Boolean networks by reducing them through stable motifs, which are self-sustaining trap spaces, and records the result in a succession diagram. The same reduction is used to search for interventions that drive the system toward a chosen attractor or target behavior.
+
+* <https://github.com/jcrozum/pystablemotifs>
+
+This page is a placeholder and a work in progress.

@@ -1,0 +1,9 @@
+---
+title: "BoolNet R package"
+---
+
+`boolnet` is an R package for generating, reconstructing, and analyzing Boolean networks. It simulates synchronous, asynchronous, and probabilistic update, and it is commonly used to find attractors, draw state-transition graphs, and test how a network responds to perturbation.
+
+* <https://cran.r-project.org/package=BoolNet>
+
+This page is a placeholder and a work in progress.

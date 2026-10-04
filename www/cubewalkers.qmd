@@ -1,0 +1,9 @@
+---
+title: "CubeWalkers"
+---
+
+`cubewalkers` simulates many trajectories of a Boolean network in parallel on a GPU. It supports synchronous, asynchronous, and custom update schemes, noisy update rules, and node or edge interventions, which makes it practical to estimate long-term dynamics in networks that are too large to enumerate.
+
+* <https://github.com/jcrozum/cubewalkers>
+
+This page is a placeholder and a work in progress.

@@ -1,0 +1,9 @@
+---
+title: "BoolMore"
+---
+
+`boolmore` refines an existing Boolean model so that it agrees more closely with experimental perturbation-observation data. It searches Boolean functions that stay consistent with the starting interaction graph and known mechanistic constraints, and scores each candidate by how well its attractors match the observations.
+
+* <https://github.com/kyuhyongpark/boolmore>
+
+This page is a placeholder and a work in progress.
