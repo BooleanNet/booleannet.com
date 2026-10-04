@@ -1,0 +1,12 @@
+---
+title: "BooleSim"
+---
+
+`boolesim` is an in-browser tool for drawing and simulating Boolean networks. It lays the network out as an interactive graph, lets you edit update rules and toggle node states, and shows how those states change over time.
+
+
+* The Visualization: <http://matthiasbock.github.io/BooleSim>
+
+* GitHub repository: <https://github.com/matthiasbock/BooleSim>
+
+This page is a placeholder and a work in progress.

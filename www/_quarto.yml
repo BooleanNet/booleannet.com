@@ -19,16 +19,23 @@ website:
     - title: Home
       style: "docked"
       contents:
-        - text: Home
-          href: index.qmd
-        - install.qmd
-        - booleannet.qmd
-        - boolnet.qmd
-        - pyboolnet.qmd
-        - pystablemotifs.qmd
-        - cubewalkers.qmd
-        - boolmore.qmd
-        - biobalm.qmd
+        - section: Introduction
+          contents:
+            - text: Home
+              href: index.qmd
+            - install.qmd
+        - section: Software
+          contents:
+            - booleannet.qmd
+            - boolnet.qmd
+            - pyboolnet.qmd
+            - pystablemotifs.qmd
+            - cubewalkers.qmd
+            - boolmore.qmd
+            - biobalm.qmd
+        - section: Visualization
+          contents:
+            - boolesim.qmd
 
 
     - title: Section 1
