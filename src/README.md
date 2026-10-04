@@ -1,11 +1,27 @@
 # BooleanNet
 
-BooleanNet is a training tool for managing existing tools and models.
+BooleanNet is a training tool that makes use of existing Boolean network models, methods and algorithms.
 
-It is not a package that implements new modeling techniques or algorithms.
+## Environment setup
 
-## Installation
+`booleannet` does not automatically install all of its dependencies as there might be conflicts across dependencies. We recommend using [pixi][pixi] as a virtual environment manager. 
 
+An example using `pixi` to set up the enviroment is:
+
+```bash
+pixi init
+pixi shell
+pixi add python=3.12 pip
+pip install git+https://github.com/hklarner/pyboolnet@3.0.16
+```
+
+Your enviroment is now set up with the necessary dependencies to use `booleannet`.
+
+[pixi]: https://pixi.prefix.dev/latest/
+
+## Install booleannet
+
+The libraires 
 ```bash
 pip install booleannet
 ```

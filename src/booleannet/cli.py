@@ -5,10 +5,16 @@ import click
 from booleannet.commands.gviz import cli as gviz
 from booleannet.commands.models import main as models
 
+try:
+    import pyboolnet
+except ImportError:
+    print("# Error: pyboolnet is not installed. See the docs`.")
+    exit(1)
+
 # Subcommand name -> click command. Add a new tool here.
 COMMANDS = {
-    "graphviz": gviz,
     "models": models,
+    "graphviz": gviz,
 }
 
 
