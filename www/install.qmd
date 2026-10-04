@@ -19,7 +19,7 @@ In a new project directory run:
 pixi init
 ```
 
-This creates the `pixi.toml` file which contains the project configuration. Now add software to the environment.
+This creates the `pixi.toml` file which contains the project configuration. environment.
 
 ## Activate 
 
