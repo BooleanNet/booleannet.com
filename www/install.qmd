@@ -1,10 +1,12 @@
 ---
-title: "Installation"
+title: "Software enviroment"
 ---
 
-The best way to do scientific computing is via [pixi] environment management. With pixi you can create isolated software environments with a wide range of software packages. Pixi is the next generation of `conda` environment management.
+This page describes how to install boolean network simulation tools and related software.
 
-All instructions here assume that you have `pixi` installed.
+## Learn to use pixi
+
+The best way to do scientific computing is via [pixi] environment management. With pixi you can create isolated software environments with a wide range of software packages. Pixi is the next generation of `conda` environment management. All instructions here assume that you have `pixi` installed.
 
 [pixi]: https://pixi.prefix.dev/latest/installation/
 
@@ -40,10 +42,9 @@ pixi add python=3.12 pip click graphviz
 pip install git+https://github.com/hklarner/pyboolnet@3.0.16
 ```
 
+## TODO
 
-## Additional software 
-
-The following software may need to be installed manually.
+cuda, and more advance software installation instructions go here
 
 [clasp][clasp] is an answer set solver for (extended) normal and disjunctive logic programs.
 

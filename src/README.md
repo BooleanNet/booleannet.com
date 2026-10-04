@@ -40,6 +40,8 @@ Commands:
   models    List model summaries, or print one model in the chosen format.
 ```
 
+Add `--help` to any subcommand to see all available options.
+
 ## bnet models: manage known models
 
 The `bnet models` subcommand operates on models from the [Biodivine Boolean Models (BBM) Benchmark Dataset][bbmb].
