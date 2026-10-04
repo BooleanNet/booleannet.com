@@ -2,4 +2,8 @@
 title: "bnet commands"
 ---
 
+The page is a direct copy of the README file at:
+
+* <https://github.com/ialbert/booleannet-central>
+
 {{< include ../src/BOOLEAN_README.md >}}
