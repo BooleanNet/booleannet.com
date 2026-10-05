@@ -59,6 +59,6 @@ format:
     theme:
       - cosmo
       - brand
-    css: styles.2026.10.4.css
+    css: styles.2026.10.5.css
     include-in-header: assets/head.html
     toc: true

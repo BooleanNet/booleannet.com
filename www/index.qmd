@@ -19,7 +19,7 @@ Discussion forum for this website:
 
 Contribute to the website:
 
-* <https://github.com/BooleanNet/booleannet.com/tree/main>
+* <https://github.com/BooleanNet/booleannet.com>
 
 
 Created with [Quarto](https://quarto.org/).
