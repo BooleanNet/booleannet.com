@@ -1,7 +1,7 @@
 
 # 
-# WWW_HOST must be set in bash to sync correctly
-#
+
+WWW_USER = www
 
 README_URL = https://raw.githubusercontent.com/ialbert/booleannet-central/master/README.md
 README = docs/booleannet.readme.md
@@ -19,13 +19,12 @@ fetch:
 	curl -fsSL $(README_URL) -o $(README)
 
 # Build the website
-build: readme
+build: 
 	quarto render $(DOC_DIR) --output-dir $(SITE_DIR)
 
 # Sync the website to the remote host
 sync: build
-	@test -n "$(WWW_HOST)" || { echo "# Error WWW_HOST is not set"; exit 1; }
-	rsync -avz -e "ssh -p 21098" $(SITE_DIR)/* $(WWW_HOST)
+	rsync -avz -e "ssh -p 21098" $(SITE_DIR)/ $(WWW_USER)@booleannet.com:www/
 
 # Shortcut to commit/push
 push:
