@@ -2,11 +2,11 @@
 authors = ["Istvan Albert <istvan.albert@gmail.com>"]
 channels = ["conda-forge"]
 name = "booleannet.com"
-platforms = ["linux-64"]
+platforms = ["linux-64", "osx-64"]
 version = "0.1.0"
 
 [tasks]
 
 [dependencies]
-quarto = ">=1.9.38,<2"
 dust = ">=1.2.6,<2"
+quarto = ">=1.9.38,<2"
