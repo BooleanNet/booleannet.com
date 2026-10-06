@@ -1,5 +1,5 @@
 ---
-title: "PyBoolnet toolbox"
+title: "PyBoolnet"
 ---
 
 `pyboolnet` is a Python toolbox for building, changing, and analyzing Boolean networks. It works from a prime-implicant representation and covers common tasks such as interaction graphs, state-transition graphs, attractors and basins, trap spaces, model checking, and graph drawing.

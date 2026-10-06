@@ -8,7 +8,7 @@ __pycache__/
 pixi.lock
 # C extensions
 *.so
-www/_site/
+_site/
 
 # Distribution / packaging
 .Python
@@ -225,3 +225,6 @@ __marimo__/
 # pixi environments
 .pixi/*
 !.pixi/config.toml
+
+/.quarto/
+**/*.quarto_ipynb

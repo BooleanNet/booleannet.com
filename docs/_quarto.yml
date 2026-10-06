@@ -27,12 +27,12 @@ website:
         - section: Software
           contents:
             - booleannet.qmd
-            - boolnet.qmd
             - pyboolnet.qmd
             - pystablemotifs.qmd
             - cubewalkers.qmd
             - boolmore.qmd
             - biobalm.qmd
+            - boolnet.qmd
         - section: Visualization
           contents:
             - boolesim.qmd

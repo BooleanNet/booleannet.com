@@ -2,6 +2,17 @@
 title: "BooleanNet Home"
 ---
 
+```{ojs}
+//| echo: false
+updated = new Date().toLocaleDateString("en-US", {
+  weekday: "long",
+  month: "short",
+  day: "numeric",
+  year: "numeric"
+})
+```
+
+Updated on `{ojs} updated`.
 
 When trying to understand the role and functioning of a regulatory network, the first step is to assemble the components of the network and the interactions between them. 
 
@@ -13,13 +24,14 @@ In general, a Boolean or logical function is written as a statement acting on th
 
 > This site is meant to serve as a resource for Boolean network modeling. It collects tutorials, examples, and best practices. It is a work in progress, contributions are welcome.
 
-Discussion forum for this website:
-
-* <https://github.com/BooleanNet/booleannet.com/discussions>
-
-Contribute to the website:
+Contribute via the GitHub repository:
 
 * <https://github.com/BooleanNet/booleannet.com>
 
+Discussion forum:
 
-Created with [Quarto](https://quarto.org/).
+* <https://github.com/BooleanNet/booleannet.com/discussions>
+
+ 
+
+ Created with [Quarto](https://quarto.org/).

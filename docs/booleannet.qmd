@@ -1,5 +1,5 @@
 ---
-title: "BooleanNet simulations"
+title: "BooleanNet"
 ---
 
 The page is a direct copy of the README file at:

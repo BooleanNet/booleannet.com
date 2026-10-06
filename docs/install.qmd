@@ -4,26 +4,51 @@ title: "Setup"
 
 This page describes how to install software when working with Boolean network modeling.
 
-## Learn to use pixi
+The installation process will work best on Linux.
 
-The best way to do scientific computing is via [pixi] environment management. With pixi you can create isolated software environments with a wide range of software packages. Pixi is the next generation of `conda` environment management. All instructions here assume that you have `pixi` installed.
+On Windows use the [Windows subsytem for Linux][wsl] and follow the Linux instructions.
+
+On MacOS the command line tools by Apple are required. Install them with:
+
+```bash
+xcode-select --install 
+```
+
+[wsl]: https://learn.microsoft.com/en-us/windows/wsl/install
+
+## Learn pixi
+
+Currently, the best way to do scientific computing is via [pixi] software which is considered to be 
+the next generation of `conda` environment management. With pixi you can create isolated software environments with a wide range of software packages. 
+
+All instructions here assume that you have `pixi` installed.
 
 [pixi]: https://pixi.prefix.dev/latest/installation/
 
-## Initialize a project
-
-In a new project directory run:
-
 ```bash
-# Initialize a new project
-pixi init
+# Quick install pixi. See the pixi website for the latest instructions
+curl -fsSL https://pixi.sh/install.sh | sh
 ```
 
-This creates the `pixi.toml` file which contains the project configuration. environment.
+Open a new terminal to apply the changes.
+
+## Initialize a project
+
+Pixi allows the creation of local enviroment. Make a new directory then initialize it:
+
+```bash
+# Initialize a new project directory
+pixi init
+
+# Add Python 3.12 and some useful packages
+pixi add python=3.12 pip click graphviz pandas numpy matplotlib
+```
+
+This creates the `pixi.toml` file which contains the project configuration. environment. 
 
 ## Activate 
 
-Load a shell with the environment activated (analogous to `conda activate my-environment`).
+Load a shell with the environment activated (analogous to `conda activate myenv`).
 
 ```bash
 # Activate the enviroment
@@ -32,14 +57,23 @@ pixi shell
 
 ## Install software
 
-Add software to the environment.
+Once inside the shell, you can install software from within the shell environment as well. 
+
+## Forked repositories
+
+We maintain copies (forks) to existing software packages that have small fixes applied to allow them to operate on modern Python versions and to apply other fixes arising from running them on different operating systems. All fixes are contributed back to the original repositories but the authors may or may not merge the changes.
+
+No credit is claimed for the original work - these are mere copies with small modifications. 
 
 ```bash
-# Add Python 3.12 and some useful packages
-pixi add python=3.12 pip click graphviz
+# Install booleannet
+pip install --upgrade booleannet
 
-# Install pyboolnet
-pip install git+https://github.com/hklarner/pyboolnet@3.0.16
+# The pyboolnet fork
+pip install git+https://github.com/BooleanNet/pyboolnet
+
+# The pystablemotifs fork
+pip install git+https://github.com/BooleanNet/pystablemotifs
 ```
 
 ## TODO
@@ -49,8 +83,8 @@ cuda, and more advance software installation instructions go here
 [clasp][clasp] is an answer set solver for (extended) normal and disjunctive logic programs.
 
 ```bash
-# Install clingo
-pixi add -c potassco:clingo
+# Install clingo from the potassco repository
+pixi add potassco:clingo
 ```
 
 [clasp]: https://potassco.org/clasp/
