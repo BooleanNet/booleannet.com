@@ -61,19 +61,17 @@ Once inside the shell, you can install software from within the shell environmen
 
 ## Forked repositories
 
-We maintain copies (forks) to existing software packages that have small fixes applied to allow them to operate on modern Python versions and to apply other fixes arising from running them on different operating systems. All fixes are contributed back to the original repositories but the authors may or may not merge the changes.
-
-No credit is claimed for the original work - these are mere copies with small modifications. 
+We maintain copies (forks) to existing software packages that have small fixes applied to allow them to operate on modern Python versions and to fix various problems arising from running them on different operating systems. All fixes are contributed back to the original repositories.
 
 ```bash
 # Install booleannet
-pip install --upgrade booleannet
+pixi run pip install --upgrade booleannet
 
-# The pyboolnet fork
-pip install git+https://github.com/BooleanNet/pyboolnet
+# Install pyboolnet
+pixi run pip install git+https://github.com/BooleanNet/pyboolnet
 
-# The pystablemotifs fork
-pip install git+https://github.com/BooleanNet/pystablemotifs
+# Install pystablemotifs
+pixi run pip install git+https://github.com/BooleanNet/pystablemotifs
 ```
 
 ## TODO

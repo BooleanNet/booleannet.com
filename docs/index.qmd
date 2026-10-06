@@ -12,15 +12,15 @@ updated = new Date().toLocaleDateString("en-US", {
 })
 ```
 
-Updated on `{ojs} updated`.
+Updated on *`{ojs} updated`.*
 
 When trying to understand the role and functioning of a regulatory network, the first step is to assemble the components of the network and the interactions between them. 
 
-The experimental advances in the large scale mapping of regulatory networks are fairly recent, but modeling efforts date back to the end of 1960s thanks to the pioneering work of Stuart Kauffman and Rene Thomas.
+Large scale mapping of regulatory networks is fairly recent, but modeling efforts date back to the late 1960s and the pioneering work of Stuart Kauffman and Rene Thomas.
 
-In a Boolean representation we assume that nodes are equivalent, and their interactions form a directed graph in which each node receives inputs from its neighbors (nodes that are connected to it). The state of nodes is described by binary (`on`/`off`) variables, and the dynamic behavior of each variable, that is, whether it will be `on` or `off` at next moment, is governed by a Boolean function. 
+In a Boolean representation the interactions form a directed graph in which each node receives inputs from its neighbors. Each node is in a binary (`on`/`off`) state, and whether it will be `on` or `off` at the next moment is governed by a Boolean function. 
 
-In general, a Boolean or logical function is written as a statement acting on the inputs using the logical operators `and`, `or` and `not` and its output is `on`(`off`) if the statement is true (false).
+A Boolean function is a statement acting on the inputs using the operators `and`, `or` and `not`; its output is `on` if the statement is true and `off` otherwise.
 
 > This site is meant to serve as a resource for Boolean network modeling. It collects tutorials, examples, and best practices. It is a work in progress, contributions are welcome.
 

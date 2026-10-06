@@ -4,18 +4,18 @@
 #
 
 README_URL = https://raw.githubusercontent.com/ialbert/booleannet-central/master/README.md
-README = src/BOOLEAN_README.md
+README = docs/booleannet.readme.md
 
 DOC_DIR = docs
 SITE_DIR = _site
 
 # Serve the website locally
-serve: readme
+serve:
 	quarto preview $(DOC_DIR) --port 8000
 
 
 # Fetch the booleannet-central README used by www/booleannet.qmd
-readme:
+fetch:
 	curl -fsSL $(README_URL) -o $(README)
 
 # Build the website
