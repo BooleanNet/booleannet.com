@@ -1,0 +1,11 @@
+---
+title: "BooleanNet"
+---
+
+booleannet is a Python package for learning and exploring Boolean networks. 
+It installs the `bnet` command line tool, that can list models, run simulations, 
+draw graphs, and has other functions. It was first published in 2008 as a simulation toolbox for life scientists.
+
+* <https://github.com/ialbert/booleannet>
+
+This page is a placeholder and a work in progress.
