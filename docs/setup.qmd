@@ -29,62 +29,39 @@ curl -fsSL https://pixi.sh/install.sh | sh
 
 Open a new terminal to apply the changes. 
 
-We prepackaed the installation commands below into a single file that you can inspect at [setup.2026.txt][setup].
+## Initialize the environment
 
-[setup]: code/setup.2026.txt
+We prepackaged the installation commands into a single file that you can inspect at 
 
-Run it with:
-
-```bash
-# Open a new terminal
-curl -fsSL b | sh
-```
-
-[setup.2026.txt][setup]
+* <https://raw.githubusercontent.com/BooleanNet/booleannet.com/refs/heads/main/docs/code/setup.2026.txt>
 
 
-
-## Initialize an enviroment
-
-Pixi allows the creation of local enviroment. Make a new directory then initialize it:
+Run the code below to install all required software into an isolated environment:
 
 ```bash
-# Initialize a new project directory
-pixi init
+# Create a new directory for the enviroment
+mkdir -p boolean
 
-# Add Python 3.12 and some useful packages
-pixi add python=3.12 pip click graphviz pandas numpy matplotlib clingo imagemagick
+# Change to this new directory
+cd boolean
 
-# Install booleannet
-pixi run pip install --upgrade booleannet
-
-# Install pyboolnet
-pixi run pip install git+https://github.com/BooleanNet/pyboolnet
-
-# Install pystablemotifs
-pixi run pip install git+https://github.com/BooleanNet/pystablemotifs
-
-# On some system you need to run dot -c to initialize graphviz
-pixi run dot -c
+# Run the setup script
+curl -fsSL https://raw.githubusercontent.com/BooleanNet/booleannet.com/refs/heads/main/docs/code/setup.2026.txt | sh
 ```
 
-## Activate the enviroment:
+You now have a working enviroment for Boolean network modeling.
 
-You can run commands via `pixi run` or activate the enviroment with `pixi shell`.
+Active the enviroment and run the `doctor` command to check the installation:
 
 ```bash
 # Activate the enviroment
 pixi shell
-```
 
-## Check the installation
-
-```bash
-# Check the installation
+# Run the doctor command
 bnet doctor
 ```
 
-it may take a little bit to run since I have to process all the Python libraries. Success looks like this:
+It may take a little bit to run since I have to process all the Python libraries. Success looks like this:
 
 ```
 #
@@ -122,7 +99,9 @@ We maintain copies (forks) to existing software packages that have small fixes a
 
 All credit for these tools go to the original authors.
 
-## Todo: cuda and other software
+## Todo: other software
+
+TODO: adding more instructions
 
 cuda, and more advance software installation instructions go here
 
