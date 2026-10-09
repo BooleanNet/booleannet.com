@@ -13,7 +13,7 @@ The installation process will work for Linux, Windows and MacOS.
 
 [wsl]: https://learn.microsoft.com/en-us/windows/wsl/install
 
-## Pixi environment management
+## Pixi environments
 
 Currently, the best way to do scientific computing is via [pixi] software which is considered to be 
 the next generation of `conda` environment management. With pixi you can create isolated software environments with a wide range of software packages. 
@@ -27,7 +27,22 @@ All instructions here assume that you have `pixi` installed. Quick install for p
 curl -fsSL https://pixi.sh/install.sh | sh
 ```
 
-Open a new terminal to apply the changes.
+Open a new terminal to apply the changes. 
+
+We prepackaed the installation commands below into a single file that you can inspect at [setup.2026.txt][setup].
+
+[setup]: code/setup.2026.txt
+
+Run it with:
+
+```bash
+# Open a new terminal
+curl -fsSL b | sh
+```
+
+[setup.2026.txt][setup]
+
+
 
 ## Initialize an enviroment
 
@@ -38,7 +53,7 @@ Pixi allows the creation of local enviroment. Make a new directory then initiali
 pixi init
 
 # Add Python 3.12 and some useful packages
-pixi add python=3.12 pip click graphviz pandas numpy matplotlib clingo
+pixi add python=3.12 pip click graphviz pandas numpy matplotlib clingo imagemagick
 
 # Install booleannet
 pixi run pip install --upgrade booleannet

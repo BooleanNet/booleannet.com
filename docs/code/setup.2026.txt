@@ -1,0 +1,17 @@
+ Initialize a new project directory
+pixi init
+
+# Add Python 3.12 and some useful packages
+pixi add python=3.12 pip click graphviz pandas numpy matplotlib clingo imagemagick
+
+# Install booleannet
+pixi run pip install --upgrade booleannet
+
+# Install pyboolnet
+pixi run pip install git+https://github.com/BooleanNet/pyboolnet
+
+# Install pystablemotifs
+pixi run pip install git+https://github.com/BooleanNet/pystablemotifs
+
+# On some system you need to run dot -c to initialize graphviz
+pixi run dot -c
