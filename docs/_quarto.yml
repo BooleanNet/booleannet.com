@@ -23,6 +23,9 @@ website:
             - text: Home
               href: index.qmd
             - setup.qmd
+        - section: Tutorials
+          contents:
+            - tutorials/first-steps.md
 
     - title: Software
       style: docked
@@ -40,6 +43,7 @@ website:
         - section: R packages
           contents:
             - software/boolnet.qmd
+
         - section: Visualization
           contents:
             - software/boolesim.qmd
