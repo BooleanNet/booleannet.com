@@ -1,7 +1,7 @@
 
 # 
 
-WWW_USER = www
+USER = www
 
 README_URL = https://raw.githubusercontent.com/ialbert/booleannet-central/master/README.md
 README = docs/booleannet.readme.md
@@ -13,7 +13,6 @@ SITE_DIR = _site
 serve:
 	quarto preview $(DOC_DIR) --port 8000
 
-
 # Fetch the booleannet-central README used by www/booleannet.qmd
 fetch:
 	curl -fsSL $(README_URL) -o $(README)
@@ -24,7 +23,7 @@ build:
 
 # Sync the website to the remote host
 sync: build
-	rsync -avz -e "ssh -p 21098" $(SITE_DIR)/ $(WWW_USER)@booleannet.com:www/
+	rsync -avz -e "ssh -p 21098" ${DOC_DIR}/${SITE_DIR}/ $(USER)@booleannet.com:www/
 
 # Shortcut to commit/push
 push:
