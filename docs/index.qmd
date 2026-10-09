@@ -1,17 +1,8 @@
 
 # BooleanNet Home
 
-```{ojs}
-//| echo: false
-updated = new Date().toLocaleDateString("en-US", {
-  weekday: "long",
-  month: "short",
-  day: "numeric",
-  year: "numeric"
-})
-```
 
-Updated on *`{ojs} updated`.*
+Updated on  *Friday, October 10, 2026*
 
 When trying to understand the role and functioning of a regulatory network, the first step is to assemble the components of the network and the interactions between them. 
 

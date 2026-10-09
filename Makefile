@@ -9,16 +9,20 @@ README = docs/booleannet.readme.md
 DOC_DIR = docs
 SITE_DIR = _site
 
+
 # Serve the website locally
-serve:
+serve: date
 	quarto preview $(DOC_DIR) --port 8000
+
+date:
+	date +%Y-%m-%d > $(DOC_DIR)/date.txt
 
 # Fetch the booleannet-central README used by www/booleannet.qmd
 fetch:
 	curl -fsSL $(README_URL) -o $(README)
 
 # Build the website
-build: 
+build: date
 	quarto render $(DOC_DIR) --output-dir $(SITE_DIR)
 
 # Sync the website to the remote host
