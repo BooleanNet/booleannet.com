@@ -1,9 +1,0 @@
----
-title: "BooleanNet"
----
-
-The page is a direct copy of the README file at:
-
-* <https://github.com/ialbert/booleannet-central>
-
-{{< include booleannet.readme.md >}}

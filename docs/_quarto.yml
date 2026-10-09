@@ -9,46 +9,41 @@ website:
     left:
       - text: Home
         href: index.qmd
-      - text: Section 1
-        href: section1/page1.1.qmd
+
+      - text: Software
+        href: software/index.qmd
+  
   sidebar:
+
     - title: Home
-      style: "docked"
+      style: docked
       contents:
         - section: Introduction
           contents:
             - text: Home
               href: index.qmd
             - setup.qmd
-        - section: Software
+
+    - title: Software
+      style: docked
+      contents:
+        - text: Software
+          href: software/index.qmd
+        - section: Python Libraries
           contents:
-            - booleannet.qmd
-            - pyboolnet.qmd
-            - pystablemotifs.qmd
-            - cubewalkers.qmd
-            - boolmore.qmd
-            - biobalm.qmd
-            - boolnet.qmd
+            - software/booleannet.qmd
+            - software/pyboolnet.qmd
+            - software/pystablemotifs.qmd
+            - software/cubewalkers.qmd
+            - software/boolmore.qmd
+            - software/biobalm.qmd
+        - section: R packages
+          contents:
+            - software/boolnet.qmd
         - section: Visualization
           contents:
-            - boolesim.qmd
+            - software/boolesim.qmd
 
-
-    - title: Section 1
-      contents:
-        - section1/page1.1.qmd
-        - section1/page1.2.qmd
-        - section1/page1.3.qmd
-    - title: Section 2
-      contents:
-        - section2/page2.1.qmd
-        - section2/page2.2.qmd
-        - section2/page2.3.qmd
-    - title: Section 3
-      contents:
-        - section3/page3.1.qmd
-        - section3/page3.2.qmd
-        - section3/page3.3.qmd
 
 format:
   html:
