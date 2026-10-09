@@ -1,6 +1,5 @@
----
-title: "BooleanNet Home"
----
+
+# BooleanNet Home
 
 ```{ojs}
 //| echo: false

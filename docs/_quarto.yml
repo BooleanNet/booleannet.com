@@ -11,10 +11,6 @@ website:
         href: index.qmd
       - text: Section 1
         href: section1/page1.1.qmd
-      - text: Section 2
-        href: section2/page2.1.qmd
-      - text: Section 3
-        href: section3/page3.1.qmd
   sidebar:
     - title: Home
       style: "docked"
@@ -23,7 +19,7 @@ website:
           contents:
             - text: Home
               href: index.qmd
-            - install.qmd
+            - setup.qmd
         - section: Software
           contents:
             - booleannet.qmd

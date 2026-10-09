@@ -1,0 +1,115 @@
+---
+title: "Computer Setup"
+---
+
+This page describes how to install software when working with Boolean network modeling.
+
+All commands are to be run in a terminal.
+
+The installation process will work for Linux, Windows and MacOS.
+
+- On Windows use the [Windows subsytem for Linux][wsl] and follow the Linux instructions.
+- On MacOS install thecommand line tools by Apple by typing: ` xcode-select --install`
+
+[wsl]: https://learn.microsoft.com/en-us/windows/wsl/install
+
+## Pixi environment management
+
+Currently, the best way to do scientific computing is via [pixi] software which is considered to be 
+the next generation of `conda` environment management. With pixi you can create isolated software environments with a wide range of software packages. 
+
+All instructions here assume that you have `pixi` installed. Quick install for pixi:
+
+[pixi]: https://pixi.prefix.dev/latest/installation/
+
+```bash
+# See the pixi website for the latest instructions
+curl -fsSL https://pixi.sh/install.sh | sh
+```
+
+Open a new terminal to apply the changes.
+
+## Initialize an enviroment
+
+Pixi allows the creation of local enviroment. Make a new directory then initialize it:
+
+```bash
+# Initialize a new project directory
+pixi init
+
+# Add Python 3.12 and some useful packages
+pixi add python=3.12 pip click graphviz pandas numpy matplotlib clingo
+
+# Install booleannet
+pixi run pip install --upgrade booleannet
+
+# Install pyboolnet
+pixi run pip install git+https://github.com/BooleanNet/pyboolnet
+
+# Install pystablemotifs
+pixi run pip install git+https://github.com/BooleanNet/pystablemotifs
+
+# On some system you need to run dot -c to initialize graphviz
+pixi run dot -c
+```
+
+## Activate the enviroment:
+
+You can run commands via `pixi run` or activate the enviroment with `pixi shell`.
+
+```bash
+# Activate the enviroment
+pixi shell
+```
+
+## Check the installation
+
+```bash
+# Check the installation
+bnet doctor
+```
+
+it may take a little bit to run since I have to process all the Python libraries. Success looks like this:
+
+```
+#
+# Checking python packages ...
+#
+# pyboolnet     ✓ installed
+# pystablemotifs  ✓ installed
+#
+# Checking pyboolenet executables ...
+#
+nusmv           ✓ runs  /Users/ialbert/work/.pixi/envs/default/lib/python3.12/site-packages/pyboolnet/binaries/NuSMV-a/NuSMVa_mac64
+gringo          ✓ runs  /Users/ialbert/work/.pixi/envs/default/bin/gringo
+clasp           ✓ runs  /Users/ialbert/work/.pixi/envs/default/lib/python3.12/site-packages/pyboolnet/binaries/clasp-3.2.0/clasp-3.2.0_mac64
+bnet2prime      ✓ runs  /Users/ialbert/work/.pixi/envs/default/lib/python3.12/site-packages/pyboolnet/binaries/BNetToPrime/BNetToPrime_mac64
+espresso        ✓ runs  /Users/ialbert/work/.pixi/envs/default/lib/python3.12/site-packages/pyboolnet/binaries/espresso/espresso_mac64
+eqntott         ✓ runs  /Users/ialbert/work/.pixi/envs/default/lib/python3.12/site-packages/pyboolnet/binaries/eqntott/eqntott_mac64
+dot             ✓ runs  /Users/ialbert/work/.pixi/envs/default/bin/dot
+neato           ✓ runs  /Users/ialbert/work/.pixi/envs/default/bin/neato
+fdp             ✓ runs  /Users/ialbert/work/.pixi/envs/default/bin/fdp
+sfdp            ✓ runs  /Users/ialbert/work/.pixi/envs/default/bin/sfdp
+circo           ✓ runs  /Users/ialbert/work/.pixi/envs/default/bin/circo
+twopi           ✓ runs  /Users/ialbert/work/.pixi/envs/default/bin/twopi
+convert         ✓ runs  /usr/local/bin/convert
+#
+# settings file: /Users/ialbert/work/.pixi/envs/default/lib/python3.12/site-packages/pyboolnet/binaries/settings.cfg
+#
+```
+
+## Forked repositories
+
+We maintain copies (forks) to existing software packages that have small fixes applied to allow them to operate on modern Python versions and/or to fix various problems arising from running them on different operating systems. All fixes are contributed back to the original repositories.
+
+* <https://github.com/BooleanNet/pyboolnet>
+* <https://github.com/BooleanNet/pystablemotifs>
+
+All credit for these tools go to the original authors.
+
+## Todo: cuda and other software
+
+cuda, and more advance software installation instructions go here
+
+[clasp]: https://potassco.org/clasp/
+
